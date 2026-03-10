@@ -1718,3 +1718,29 @@ html[dir="ltr"] .step-row:nth-child(odd) .step-features {
 html[dir="ltr"] .step-row:nth-child(even) .step-features {
     justify-content: start;
 }
+html[dir="rtl"] .step-row {
+    gap: 10px;
+}
+html[dir="rtl"] .step-row:nth-child(1), html[dir="rtl"] .step-row:nth-child(3), html[dir="rtl"] .step-row:nth-child(5) 
+   
+ {
+    flex-direction: row;
+
+}
+
+html[dir="rtl"] .step-row:nth-child(2), html[dir="rtl"] .step-row:nth-child(4) 
+   
+ {
+    flex-direction: row-reverse;
+    
+}
+
+html[dir="rtl"] .step-row:nth-child(odd) .step-content {
+   
+    padding-right: 71px;
+}
+
+html[dir="rtl"] .step-row:nth-child(even) .step-content {
+   
+    padding-left: 71px;
+}

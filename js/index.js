@@ -90,6 +90,8 @@ const translations = {
         stepFeature5_2: 'التحقق من التوصيل',
         stepFeature5_3: 'معالجة التأمين',
         stepFeature5_4: 'تحليلات الأداء',
+        // Logo
+        logoTagline: 'منصة اللوجستيات',
         // CTA Buttons
         ctaStartTrial: 'ابدأ التجربة المجانية',
         ctaBookDemo: 'احجز عرضاً',
@@ -196,6 +198,8 @@ const translations = {
         stepFeature5_2: 'Delivery Verification',
         stepFeature5_3: 'Insurance Processing',
         stepFeature5_4: 'Performance Analytics',
+        // Logo
+        logoTagline: 'Logistics Platform',
         // CTA Buttons
         ctaStartTrial: 'Start Free Trial',
         ctaBookDemo: 'Schedule Demo',
@@ -251,6 +255,9 @@ function setLanguage(lang) {
     
     // Update nav links
     updateNavigation(lang);
+    
+    // Update logo tagline
+    updateLogoTagline(lang);
     
     // Update hero section
     updateHeroSection(lang);
@@ -454,6 +461,14 @@ function updateFeatureCards(lang) {
             });
         }
     });
+}
+
+function updateLogoTagline(lang) {
+    const logoTag = document.querySelector('.logo-text span:last-child');
+    if (logoTag) {
+        const text = translations[lang] && translations[lang].logoTagline ? translations[lang].logoTagline : '';
+        logoTag.textContent = text;
+    }
 }
 
 function updateCTASection(lang) {
