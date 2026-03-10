@@ -69,6 +69,27 @@ const translations = {
         feature3Item3: 'أنظمة تكامل المستودع',
         feature3Item4: 'لوحة معلومات تحليلات التوصيل',
         feature3Item5: 'تقارير مقاييس الأداء',
+        // Step Features
+        stepFeature1_1: 'عناوين متعددة',
+        stepFeature1_2: 'أنماط التوصيل',
+        stepFeature1_3: 'المعالم',
+        stepFeature1_4: 'خيارات التجميع',
+        stepFeature2_1: 'تتبع الوزن',
+        stepFeature2_2: 'الأبعاد',
+        stepFeature2_3: 'الهشاشة',
+        stepFeature2_4: 'تصنيف القيمة',
+        stepFeature3_1: 'الموافقة على الطلب',
+        stepFeature3_2: 'اختيار أفضل عرض',
+        stepFeature3_3: 'عرض معلومات السائق',
+        stepFeature3_4: 'الدفع لتأكيد الطلب',
+        stepFeature4_1: 'تتبع GPS',
+        stepFeature4_2: 'تحسين المسار',
+        stepFeature4_3: 'الاتصال مع السائق',
+        stepFeature4_4: 'التحديثات الفورية',
+        stepFeature5_1: 'خدمات التجميع',
+        stepFeature5_2: 'التحقق من التوصيل',
+        stepFeature5_3: 'معالجة التأمين',
+        stepFeature5_4: 'تحليلات الأداء',
         // CTA Buttons
         ctaStartTrial: 'ابدأ التجربة المجانية',
         ctaBookDemo: 'احجز عرضاً',
@@ -154,6 +175,27 @@ const translations = {
         feature3Item3: 'Warehouse integration systems',
         feature3Item4: 'Delivery analytics dashboard',
         feature3Item5: 'Performance metrics reports',
+        // Step Features
+        stepFeature1_1: 'Multiple Addresses',
+        stepFeature1_2: 'Delivery Patterns',
+        stepFeature1_3: 'Landmarks',
+        stepFeature1_4: 'Assembly Options',
+        stepFeature2_1: 'Weight Tracking',
+        stepFeature2_2: 'Dimensions',
+        stepFeature2_3: 'Fragility',
+        stepFeature2_4: 'Value Classification',
+        stepFeature3_1: 'Order Approval',
+        stepFeature3_2: 'Choose Best Offer',
+        stepFeature3_3: 'Driver Information',
+        stepFeature3_4: 'Payment Confirmation',
+        stepFeature4_1: 'GPS Tracking',
+        stepFeature4_2: 'Route Optimization',
+        stepFeature4_3: 'Driver Communication',
+        stepFeature4_4: 'Real-time Updates',
+        stepFeature5_1: 'Assembly Services',
+        stepFeature5_2: 'Delivery Verification',
+        stepFeature5_3: 'Insurance Processing',
+        stepFeature5_4: 'Performance Analytics',
         // CTA Buttons
         ctaStartTrial: 'Start Free Trial',
         ctaBookDemo: 'Schedule Demo',
@@ -224,6 +266,9 @@ function setLanguage(lang) {
     
     // Update video section
     updateVideoSection(lang);
+    
+    // Update step features (How It Works section)
+    updateStepFeatures(lang);
     
     // Update all buttons
     updateAllButtons(lang);
@@ -670,6 +715,46 @@ function updateModal(lang) {
     modalList.forEach((li, index) => {
         if (index < features.length) {
             li.textContent = features[index];
+        }
+    });
+}
+
+function updateStepFeatures(lang) {
+    const stepRows = document.querySelectorAll('.step-row');
+    
+    const stepsData = {
+        en: [
+            ['Multiple Addresses', 'Delivery Patterns', 'Landmarks', 'Assembly Options'],
+            ['Weight Tracking', 'Dimensions', 'Fragility', 'Value Classification'],
+            ['Order Approval', 'Choose Best Offer', 'Driver Information', 'Payment Confirmation'],
+            ['GPS Tracking', 'Route Optimization', 'Driver Communication', 'Real-time Updates'],
+            ['Assembly Services', 'Delivery Verification', 'Insurance Processing', 'Performance Analytics']
+        ],
+        ar: [
+            ['عناوين متعددة', 'أنماط التوصيل', 'المعالم', 'خيارات التجميع'],
+            ['تتبع الوزن', 'الأبعاد', 'الهشاشة', 'تصنيف القيمة'],
+            ['الموافقة على الطلب', 'اختيار أفضل عرض', 'عرض معلومات السائق', 'الدفع لتأكيد الطلب'],
+            ['تتبع GPS', 'تحسين المسار', 'الاتصال مع السائق', 'التحديثات الفورية'],
+            ['خدمات التجميع', 'التحقق من التوصيل', 'معالجة التأمين', 'تحليلات الأداء']
+        ]
+    };
+    
+    const data = stepsData[lang];
+    stepRows.forEach((row, stepIndex) => {
+        if (data[stepIndex]) {
+            const features = row.querySelectorAll('.step-feature');
+            features.forEach((feature, featureIndex) => {
+                if (featureIndex < data[stepIndex].length) {
+                    // Get the icon element
+                    const icon = feature.querySelector('i');
+                    // Update text while preserving icon
+                    feature.innerHTML = '';
+                    if (icon) {
+                        feature.appendChild(icon.cloneNode(true));
+                    }
+                    feature.appendChild(document.createTextNode(' ' + data[stepIndex][featureIndex]));
+                }
+            });
         }
     });
 }
