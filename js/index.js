@@ -48,6 +48,30 @@ const translations = {
         videoPoint2: 'إدارة عناوين التوصيل متعددة الدول',
         videoPoint3: 'تتبع GPS الفوري للسائقين والشحنات',
         videoPoint4: 'التحكم الإداري والتحليلات',
+        // Feature Cards
+        feature1Title: 'ميزات الشحن المتقدمة',
+        feature1Desc: 'التقاط بيانات البضائع التفصيلية مع تصنيفات غنية والمعالجة المتخصصة لأنواع البضائع المختلفة.',
+        feature1Item1: 'تتبع الوزن والأبعاد والهشاشة والقيمة',
+        feature1Item2: 'خيارات تفكيك ما قبل النقل',
+        feature1Item3: 'خدمات التجميع بعد التوصيل',
+        feature1Item4: 'تعليمات التعامل الخاصة',
+        feature2Title: 'إدارة الأسطول والسائقين',
+        feature2Desc: 'أسطول خاص من المركبات والسائقين يعملون عبر مناطق الخدمة مع أدوات إدارة شاملة.',
+        feature2Item1: 'تتبع GPS للسائقين والتحديثات الفورية',
+        feature2Item2: 'ملفات تعريف السائق الشاملة مع السجل التاريخي',
+        feature2Item3: 'الاتصال بين السائق والعميل',
+        feature2Item4: 'خوارزميات تحسين المسارات',
+        feature2Item5: 'أتمتة جدولة التوصيل',
+        feature3Title: 'التحكم الإداري',
+        feature3Desc: 'الإشراف الكامل على النظام وإدارة حسابات المستخدمين مع التحليلات الشاملة ومقاييس الأداء.',
+        feature3Item1: 'إدارة العمليات متعددة المناطق',
+        feature3Item2: 'إدارة الأسطول والمركبات',
+        feature3Item3: 'أنظمة تكامل المستودع',
+        feature3Item4: 'لوحة معلومات تحليلات التوصيل',
+        feature3Item5: 'تقارير مقاييس الأداء',
+        // CTA Buttons
+        ctaStartTrial: 'ابدأ التجربة المجانية',
+        ctaBookDemo: 'احجز عرضاً',
     },
     en: {
         navAbout: 'About',
@@ -97,6 +121,30 @@ const translations = {
         videoPoint2: 'Manage multi-country delivery addresses',
         videoPoint3: 'Real-time GPS driver and shipment tracking',
         videoPoint4: 'Administrative control and analytics',
+        // Feature Cards
+        feature1Title: 'Advanced Shipping Features',
+        feature1Desc: 'Capture detailed cargo data with rich classifications and specialized handling for different cargo types.',
+        feature1Item1: 'Track weight, dimensions, fragility, and value',
+        feature1Item2: 'Pre-transport disassembly options',
+        feature1Item3: 'Post-delivery assembly services',
+        feature1Item4: 'Special handling instructions',
+        feature2Title: 'Fleet & Driver Management',
+        feature2Desc: 'Dedicated fleet of vehicles and drivers operating across service areas with comprehensive management tools.',
+        feature2Item1: 'GPS tracking for drivers with real-time updates',
+        feature2Item2: 'Comprehensive driver profiles with historical records',
+        feature2Item3: 'Driver-customer communication',
+        feature2Item4: 'Route optimization algorithms',
+        feature2Item5: 'Delivery scheduling automation',
+        feature3Title: 'Administrative Control',
+        feature3Desc: 'Full system oversight and user account management with comprehensive analytics and performance metrics.',
+        feature3Item1: 'Multi-area operations management',
+        feature3Item2: 'Fleet and vehicle management',
+        feature3Item3: 'Warehouse integration systems',
+        feature3Item4: 'Delivery analytics dashboard',
+        feature3Item5: 'Performance metrics reports',
+        // CTA Buttons
+        ctaStartTrial: 'Start Free Trial',
+        ctaBookDemo: 'Schedule Demo',
     }
 };
 
@@ -152,6 +200,9 @@ function setLanguage(lang) {
     
     // Update video section
     updateVideoSection(lang);
+    
+    // Update all buttons
+    updateAllButtons(lang);
     
     // Update other sections
     updateOtherSections(lang);
@@ -237,6 +288,103 @@ function updateFeaturesSection(lang) {
         const desc = document.querySelector('.features .section-title p');
         if (desc) desc.textContent = 'مصممة لشركات التجارة الإلكترونية والشركات اللوجستيه وكذلك للأفراد الذين يحتاجون إلى خدمات شحن موثوقة عند الطلب.';
     }
+    
+    // Update feature cards content
+    updateFeatureCards(lang);
+}
+
+function updateFeatureCards(lang) {
+    const featureCards = document.querySelectorAll('.features-grid .feature-card');
+    
+    const cardData = {
+        en: [
+            {
+                title: 'Advanced Shipping Features',
+                desc: 'Capture detailed cargo data with rich classifications and specialized handling for different cargo types.',
+                items: [
+                    'Track weight, dimensions, fragility, and value',
+                    'Pre-transport disassembly options',
+                    'Post-delivery assembly services',
+                    'Special handling instructions'
+                ]
+            },
+            {
+                title: 'Fleet & Driver Management',
+                desc: 'Dedicated fleet of vehicles and drivers operating across service areas with comprehensive management tools.',
+                items: [
+                    'GPS tracking for drivers with real-time updates',
+                    'Comprehensive driver profiles with historical records',
+                    'Driver-customer communication',
+                    'Route optimization algorithms',
+                    'Delivery scheduling automation'
+                ]
+            },
+            {
+                title: 'Administrative Control',
+                desc: 'Full system oversight and user account management with comprehensive analytics and performance metrics.',
+                items: [
+                    'Multi-area operations management',
+                    'Fleet and vehicle management',
+                    'Warehouse integration systems',
+                    'Delivery analytics dashboard',
+                    'Performance metrics reports'
+                ]
+            }
+        ],
+        ar: [
+            {
+                title: 'ميزات الشحن المتقدمة',
+                desc: 'التقاط بيانات البضائع التفصيلية مع تصنيفات غنية والمعالجة المتخصصة لأنواع البضائع المختلفة.',
+                items: [
+                    'تتبع الوزن والأبعاد والهشاشة والقيمة',
+                    'خيارات تفكيك ما قبل النقل',
+                    'خدمات التجميع بعد التوصيل',
+                    'تعليمات التعامل الخاصة'
+                ]
+            },
+            {
+                title: 'إدارة الأسطول والسائقين',
+                desc: 'أسطول خاص من المركبات والسائقين يعملون عبر مناطق الخدمة مع أدوات إدارة شاملة.',
+                items: [
+                    'تتبع GPS للسائقين والتحديثات الفورية',
+                    'ملفات تعريف السائق الشاملة مع السجل التاريخي',
+                    'الاتصال بين السائق والعميل',
+                    'خوارزميات تحسين المسارات',
+                    'أتمتة جدولة التوصيل'
+                ]
+            },
+            {
+                title: 'التحكم الإداري',
+                desc: 'الإشراف الكامل على النظام وإدارة حسابات المستخدمين مع التحليلات الشاملة ومقاييس الأداء.',
+                items: [
+                    'إدارة العمليات متعددة المناطق',
+                    'إدارة الأسطول والمركبات',
+                    'أنظمة تكامل المستودع',
+                    'لوحة معلومات تحليلات التوصيل',
+                    'تقارير مقاييس الأداء'
+                ]
+            }
+        ]
+    };
+    
+    const data = cardData[lang];
+    
+    featureCards.forEach((card, index) => {
+        if (data[index]) {
+            const h3 = card.querySelector('h3');
+            const p = card.querySelector('p');
+            const lis = card.querySelectorAll('ul.feature-highlights li');
+            
+            if (h3) h3.textContent = data[index].title;
+            if (p) p.textContent = data[index].desc;
+            
+            lis.forEach((li, itemIndex) => {
+                if (itemIndex < data[index].items.length) {
+                    li.textContent = data[index].items[itemIndex];
+                }
+            });
+        }
+    });
 }
 
 function updateCTASection(lang) {
@@ -360,6 +508,43 @@ function updateVideoSection(lang) {
                     ${learningPoints[index]}`;
             }
         });
+    }
+}
+
+function updateAllButtons(lang) {
+    // Update CTA buttons in hero section
+    const heroCtaButtons = document.querySelectorAll('.hero .cta-buttons a.btn');
+    if (heroCtaButtons[0]) {
+        const span0 = heroCtaButtons[0].querySelector('span');
+        if (span0) span0.textContent = lang === 'en' ? 'Start Free Trial' : 'ابدأ التجربة';
+        else heroCtaButtons[0].innerHTML = `<i class="fas fa-rocket"></i> ${lang === 'en' ? 'Start Free Trial' : 'ابدأ التجربة'}`;
+    }
+    if (heroCtaButtons[1]) {
+        const span1 = heroCtaButtons[1].querySelector('span');
+        if (span1) span1.textContent = lang === 'en' ? 'Watch Platform Demo' : 'شاهد العرض التوضيحي';
+        else heroCtaButtons[1].innerHTML = `<i class="fas fa-play-circle"></i> ${lang === 'en' ? 'Watch Platform Demo' : 'شاهد العرض التوضيحي'}`;
+    }
+    
+    // Update Login button
+    const loginBtn = document.querySelector('.nav-cta .btn-primary');
+    if (loginBtn) {
+        const span = loginBtn.querySelector('span.lang-text');
+        if (span) span.textContent = lang === 'en' ? 'Log In' : 'دخول';
+    }
+    
+    // Update video section button
+    const videoBtn = document.querySelector('.video-content .btn-primary');
+    if (videoBtn) {
+        videoBtn.innerHTML = `<i class="fas fa-calendar-alt"></i> ${lang === 'en' ? 'Schedule Live Demo' : 'احجز عرضاً مباشراً'}`;
+    }
+    
+    // Update CTA section buttons
+    const ctaButtons = document.querySelectorAll('.cta-section .cta-buttons a.btn');
+    if (ctaButtons[0]) {
+        ctaButtons[0].innerHTML = `<i class="fas fa-shipping-fast"></i> ${lang === 'en' ? 'Start Free Trial' : 'ابدأ التجربة المجانية'}`;
+    }
+    if (ctaButtons[1]) {
+        ctaButtons[1].innerHTML = `<i class="fas fa-calendar-alt"></i> ${lang === 'en' ? 'Schedule Demo' : 'احجز عرضاً'}`;
     }
 }
 
