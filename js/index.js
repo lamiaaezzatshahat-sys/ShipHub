@@ -72,6 +72,18 @@ const translations = {
         // CTA Buttons
         ctaStartTrial: 'ابدأ التجربة المجانية',
         ctaBookDemo: 'احجز عرضاً',
+        // Footer
+        footerDesc: 'نظام شامل متعدد الأدوار للشحن الدولي وإدارة توصيل الميل الأخير مصمم لتبسيط عمليات اللوجستيات عبر دول متعددة.',
+        footerCopyright: '© 2026 منصة ShipHub الدولية للوجستيات. جميع الحقوق محفوظة | تم التطوير بواسطة Smart Traffic Computer Systems.',
+        // Modal
+        modalTitle: 'عرض توضيحي لمنصة ShipHub',
+        modalFeaturesTitle: 'الميزات الرئيسية المعروضة في هذا العرض:',
+        modalFeature1: 'إنشاء شحنات مع تصنيفات تفصيلية',
+        modalFeature2: 'إدارة العناوين متعددة الدول',
+        modalFeature3: 'تتبع السائقين بـ GPS الفوري',
+        modalFeature4: 'تكوين خدمات التفكيك/التجميع',
+        modalFeature5: 'نظرة عامة على لوحة التحكم الإدارية',
+        modalFeature6: 'تحليلات وتقارير التوصيل',
     },
     en: {
         navAbout: 'About',
@@ -145,6 +157,18 @@ const translations = {
         // CTA Buttons
         ctaStartTrial: 'Start Free Trial',
         ctaBookDemo: 'Schedule Demo',
+        // Footer
+        footerDesc: 'A comprehensive multi-role international shipping and last-mile delivery management system designed to streamline logistics operations across multiple countries.',
+        footerCopyright: '© 2026 ShipHub International Logistics Platform. All rights reserved | Developed by Smart Traffic Computer Systems.',
+        // Modal
+        modalTitle: 'ShipHub Platform Demo',
+        modalFeaturesTitle: 'Key Features Shown in This Demo:',
+        modalFeature1: 'Create shipments with detailed classifications',
+        modalFeature2: 'Manage multi-country delivery addresses',
+        modalFeature3: 'Real-time GPS driver tracking',
+        modalFeature4: 'Configure disassembly/assembly services',
+        modalFeature5: 'Administrative dashboard overview',
+        modalFeature6: 'Delivery analytics and reports',
     }
 };
 
@@ -572,6 +596,82 @@ function updateOtherSections(lang) {
             if (i < texts.length) el.textContent = texts[i];
         });
     }
+    
+    // Update footer
+    updateFooter(lang);
+    
+    // Update modal
+    updateModal(lang);
+}
+
+function updateFooter(lang) {
+    // Update footer description
+    const footerDesc = document.querySelector('.footer-about p');
+    if (footerDesc) {
+        if (lang === 'en') {
+            footerDesc.textContent = 'A comprehensive multi-role international shipping and last-mile delivery management system designed to streamline logistics operations across multiple countries.';
+        } else {
+            footerDesc.textContent = 'نظام شامل متعدد الأدوار للشحن الدولي وإدارة توصيل الميل الأخير مصمم لتبسيط عمليات اللوجستيات عبر دول متعددة.';
+        }
+    }
+    
+    // Update copyright
+    const copyright = document.querySelector('.copyright p');
+    if (copyright) {
+        if (lang === 'en') {
+            copyright.innerHTML = '© 2026 ShipHub International Logistics Platform. All rights reserved | Developed by <strong>Smart Traffic Computer Systems</strong>.';
+        } else {
+            copyright.innerHTML = '&copy; 2026 منصة ShipHub الدولية للوجستيات. جميع الحقوق محفوظة | تم التطوير بواسطة <strong>Smart Traffic Computer Systems</strong>.';
+        }
+    }
+}
+
+function updateModal(lang) {
+    // Update modal title
+    const modalTitle = document.querySelector('.modal-header h3');
+    if (modalTitle) {
+        if (lang === 'en') {
+            modalTitle.textContent = 'ShipHub Platform Demo';
+        } else {
+            modalTitle.textContent = 'عرض توضيحي لمنصة ShipHub';
+        }
+    }
+    
+    // Update modal features title
+    const modalFeaturesTitle = document.querySelector('.modal-body h4');
+    if (modalFeaturesTitle) {
+        if (lang === 'en') {
+            modalFeaturesTitle.textContent = 'Key Features Shown in This Demo:';
+        } else {
+            modalFeaturesTitle.textContent = 'الميزات الرئيسية المعروضة في هذا العرض:';
+        }
+    }
+    
+    // Update modal features list
+    const modalList = document.querySelectorAll('.modal-body ul li');
+    const featuresEn = [
+        'Create shipments with detailed classifications',
+        'Manage multi-country delivery addresses',
+        'Real-time GPS driver tracking',
+        'Configure disassembly/assembly services',
+        'Administrative dashboard overview',
+        'Delivery analytics and reports'
+    ];
+    const featuresAr = [
+        'إنشاء شحنات مع تصنيفات تفصيلية',
+        'إدارة العناوين متعددة الدول',
+        'تتبع السائقين بـ GPS الفوري',
+        'تكوين خدمات التفكيك/التجميع',
+        'نظرة عامة على لوحة التحكم الإدارية',
+        'تحليلات وتقارير التوصيل'
+    ];
+    
+    const features = lang === 'en' ? featuresEn : featuresAr;
+    modalList.forEach((li, index) => {
+        if (index < features.length) {
+            li.textContent = features[index];
+        }
+    });
 }
 
 // ============ Header scroll effect ============

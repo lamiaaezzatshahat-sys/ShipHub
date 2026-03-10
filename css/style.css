@@ -1699,3 +1699,22 @@ html[dir="ltr"] .features-grid {
         transform: none;
     }
 }
+
+
+
+
+
+
+/* in  Englsh page  */
+
+html[dir="ltr"] .nav-links{
+
+    direction: rtl;
+}
+
+html[dir="ltr"] .step-row:nth-child(odd) .step-features {
+    justify-content: end;
+}
+html[dir="ltr"] .step-row:nth-child(even) .step-features {
+    justify-content: start;
+}
