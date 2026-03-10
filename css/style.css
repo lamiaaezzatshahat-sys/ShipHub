@@ -1503,11 +1503,11 @@ html[dir="ltr"] .footer-links a i {
 
 /* RTL/LTR Section Layout Positioning */
 html[dir="rtl"] .section-title {
-    text-align: right;
+    text-align: center;
 }
 
 html[dir="ltr"] .section-title {
-    text-align: left;
+    text-align: center;
 }
 
 html[dir="rtl"] .hero-content {
@@ -1526,11 +1526,21 @@ html[dir="ltr"] .video-container {
     flex-direction: row;
 }
 
-html[dir="rtl"] .step-row {
+/* Alternating step-row layout for RTL */
+html[dir="rtl"] .step-row:nth-child(odd) {
+    flex-direction: row;
+}
+
+html[dir="rtl"] .step-row:nth-child(even) {
     flex-direction: row-reverse;
 }
 
-html[dir="ltr"] .step-row {
+/* Alternating step-row layout for LTR */
+html[dir="ltr"] .step-row:nth-child(odd) {
+    flex-direction: row-reverse;
+}
+
+html[dir="ltr"] .step-row:nth-child(even) {
     flex-direction: row;
 }
 
